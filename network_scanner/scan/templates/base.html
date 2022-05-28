@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,700&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/4fc0c0ec0f.js" crossorigin="anonymous"></script>
+    <title>
+        {% block title%} {% endblock %}
+    </title>
+</head>
+<body>
+   <div class="header">
+    <div class="logo">
+        Scanner
+    </div>
+        <div class="nav">
+            <ul>
+                <li>Port Scan</li>
+                <li>Vulnerability Scan</li>
+                <li>Network Tools</li>
+                <li>Logout</li>
+            </ul>
+        </div>
+    </div>
+   </div>
+   <div class="wrapper">
+  <div class="body">
+        
+
+        {% block body %}
+    {% endblock %}
+
+    </div>
+     </div>
+    
+
+</body>
+</html>

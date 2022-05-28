@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Scan {% endblock%}
+
+{% block body %}
+
+    <div class="scan-form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="target">Target: </label>
+        <input type="text" required name="target">
+
+        <label for="port">Port No: </label>
+        <input type="number" required name="port">
+
+        <input type="submit" value="Start Scan">
+
+
+        <p>{{ message }}</p>
+
+        
+    </form> 
+    </div>
+{% endblock %}

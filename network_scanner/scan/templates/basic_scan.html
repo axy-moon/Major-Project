@@ -1,0 +1,51 @@
+{% extends 'scan.html'%}
+
+{% block body%}
+
+<h1 class="center-head">Basic Scan</h1>
+
+<div class="pre-res" id="pre-res" style="display: none;">
+  <p>Scan completed Successfully <br> Scan Time: 25s</p>
+  
+  <div class="result-btn">
+    <button id="vw-res"  class="btn" onclick="SwapDivsWithClick('form-wrapper','result-container')">View Results</button>
+  </div> 
+
+</div>
+
+
+<div class="scan-form">
+    <form action="{% url 'basic_scan' %}" method="POST">
+        {% csrf_token %}
+        <div style="display: block;" class="form-wrapper" id="form-wrapper">
+            <div class="form">
+               <div class="inputfield">
+                  <label>Target: </label>
+                  <input type="text" class="input" name="target">
+               </div>  
+                <div class="inputfield">
+                  <label>Scan Name: </label>
+                  <input type="text" class="input">
+               </div> 
+               <div class="inputfield">
+                <label>Description</label>
+                <textarea class="textarea"></textarea>
+             </div>
+                
+               <div class="inputfield">
+              <button type="submit" class="btn">Start Scan</button>
+                
+            </div>
+
+    </div>
+
+        
+        
+    </form>
+      
+  </div> 
+   
+
+
+
+{% endblock %}

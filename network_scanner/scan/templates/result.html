@@ -1,0 +1,64 @@
+{% extends 'scan.html'%}
+
+{% block body%}
+
+<h1 class="center-head">Basic Scan</h1>
+
+<div class="pre-res" id="pre-res">
+  <p>Scan completed Successfully <br> Scan Time: 25s</p>
+</div>
+  
+  <div class="result-btn" style="display:block;">
+    <button id="vw-res"  class="btn" onclick="SwapDivsWithClick('pre-res','result-container')">View Results</button>
+  </div> 
+
+<div class="result-container" style="display:none;" id="result-container">
+    <h3>Scan results for scan done at Monday</h3>
+		<h4>Target: 127.0.0.1</h4>
+		<p>Scan Type: Basic Scan</p>
+		
+    
+    <table>
+			<tr>
+				<th>PORT</th>
+				<th>STATE</th>
+				<th>SERVICE</th>
+			</tr>
+      {% for i in res %}
+
+      <tr>
+				<td>{{i.port}}</td>
+				<td>{{i.state}}</td>
+				<td>{{i.service}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    </div>
+    
+      <script type="text/javascript">
+        
+       
+
+        function SwapDivsWithClick(div1,div2)
+        {
+          d1 = document.getElementById(div1);
+          d2 = document.getElementById(div2);
+          d3 = document.getElementById('vw-res')
+          if( d2.style.display == "none" )
+          {
+              d1.style.display = "none";
+              d2.style.display = "block";
+            d3.innerHTML = "Go Back"
+            }
+          else
+          {
+              d1.style.display = "block";
+              d2.style.display = "none";
+              d3.innerHTML = "View Result";
+            }
+        }
+
+        
+      </script>
+{% endblock %}

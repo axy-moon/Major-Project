@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static '/css/user.css'%}">
+    <title>AM Scanner</title>
+</head>
+<body>
+        {% block body %}    
+        
+    <div class="container">
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+    <h1>Log In</h1> 
+    <div class="form-content"> 
+      <input type="text" id="user-name" name="user-name" placeholder="Username">
+      <input type="password" id="password" name="password" placeholder="Password">
+      <br> 
+    <button class="button">Log In</button>
+    <br>
+      <div class="signup-message"> 
+        <a href="#">New User? Sign Up</a>
+    </div>
+    </div>
+    </form>
+    </div>
+        {% endblock %}
+
+
+</body>
+</html>

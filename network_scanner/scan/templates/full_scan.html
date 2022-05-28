@@ -1,0 +1,34 @@
+{% extends 'scan.html'%}
+{% block title %} Full Scan {% endblock %}
+{% block body%}
+
+<h1 class="center-head">Full Scan</h1>
+<div class="scan-form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-wrapper">
+            <div class="form">
+               <div class="inputfield">
+                  <label>Scan Name: </label>
+                  <input type="text" class="input">
+               </div>  
+               <div class="form">
+                <div class="inputfield">
+                   <label>Target: </label>
+                   <input type="text" class="input">
+                </div> 
+               <div class="inputfield">
+                <label>Description</label>
+                <textarea class="textarea"></textarea>
+             </div>
+               <div class="inputfield">
+        <input type="submit" value="Start Scan" class="btn">
+      </div>
+        </div>
+
+        <p>{{ message }}</p>
+        </div>
+        
+    </form> 
+
+{% endblock %}

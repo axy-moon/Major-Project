@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="center-head">Find My IP</h1>
+
+    <div class="ip-box">
+        <p class="ip">IPv4: {{ipv4}}</p>
+        <p class="ip">IPv6: {{ipv6}}</p>
+        <p class="ip">Public IP Address: {{public_ip}}</p>
+
+    </div>
+{% endblock %}
