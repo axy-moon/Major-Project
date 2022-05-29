@@ -2,10 +2,10 @@
 
 {% block body%}
 
-<h1 class="center-head">Basic Scan</h1>
+<h1 class="center-head">Scan Result</h1>
 
 <div class="pre-res" id="pre-res">
-  <p>Scan completed Successfully <br> Scan Time: 25s</p>
+  <p>Scan completed Successfully <br> Scan Time: </p>
 </div>
   
   <div class="result-btn" style="display:block;">
@@ -17,7 +17,7 @@
 		<h4>Target: 127.0.0.1</h4>
 		<p>Scan Type: Basic Scan</p>
 		
-    
+    <p>{{res.nmap.scaninfo}}</p>
     <table>
 			<tr>
 				<th>PORT</th>

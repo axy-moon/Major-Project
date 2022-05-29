@@ -100,6 +100,13 @@ body {
   
 }
 
+#first-grid-box i {
+  font-size: 160px;
+  color: #9fef00;
+  padding: 50px;
+  margin: auto;
+}
+
 #first-grid-box {
   height: 360px;
 }

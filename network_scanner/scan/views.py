@@ -1,4 +1,5 @@
 from email import message
+from unittest import result
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import nmap
@@ -52,6 +53,14 @@ def basic_scan(request):
     return render(request,"basic_scan.html")
 
 def custom_scan(request):
+    if request.method == 'POST':
+        target = request.POST['target']
+        ports = request.POST['port']
+
+        nm = nmap.PortScanner()
+        res = nm.scan(target,ports)
+
+        return render(request,'result.html',{'res':res})
     return render(request,'custom_scan.html')
 def advanced_scan(request):
     return render(request,'advanced_scan.html')
