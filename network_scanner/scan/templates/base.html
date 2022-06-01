@@ -22,10 +22,12 @@
     </div>
         <div class="nav">
             <ul>
-                <li>Port Scan</li>
-                <li>Vulnerability Scan</li>
-                <li>Network Tools</li>
-                <li>Logout</li>
+            <li><a href="{% url 'home'%}">Port Scan</a></li>
+                <li><a href="{% url 'vhome'%}">Vulnerability Scan</a></li>
+                <li><a href="{% url 'thome'%}">Network Tools</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'login'%}">Log Out</a></li>
+                {% endif %}
                 <li><i class="bi bi-person-circle"></i></li> 
             </ul>
             
