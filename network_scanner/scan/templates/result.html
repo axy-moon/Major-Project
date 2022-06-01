@@ -5,7 +5,7 @@
 <h1 class="center-head">Scan Result</h1>
 
 <div class="pre-res" id="pre-res">
-  <p>Scan completed Successfully <br> Scan Time: </p>
+  <p>Scan completed Successfully <br> Scan Time: {{res.nmap.scanstats.timestr}} </p>
 </div>
   
   <div class="result-btn" style="display:block;">
@@ -13,11 +13,12 @@
   </div> 
 
 <div class="result-container" style="display:none;" id="result-container">
-    <h3>Scan results for scan done at Monday</h3>
+    <h3>Scan results for scan done at {{res.nmap.scanstats.timestr}}</h3>
 		<h4>Target: 127.0.0.1</h4>
 		<p>Scan Type: Basic Scan</p>
 		
-    <p>{{res.nmap.scaninfo}}</p>
+    
+    <p>{{res.scan}}</p>
     <table>
 			<tr>
 				<th>PORT</th>
@@ -27,9 +28,9 @@
       {% for i in res %}
 
       <tr>
-				<td>{{i.port}}</td>
-				<td>{{i.state}}</td>
-				<td>{{i.service}}</td>
+				<td>{{i.nmap.scaninfo.services}}</td>
+				<td>{{i.nmap}}</td>
+				<td>{{i.nmap.port}}</td>
       </tr>
       {% endfor %}
 

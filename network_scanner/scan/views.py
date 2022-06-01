@@ -5,27 +5,12 @@ from django.contrib.auth.decorators import login_required
 import nmap
 import socket
 # Create your views here.
+
+scanner = nmap.PortScanner
+
 @login_required
 def home(request):
     return render(request,"index.html")
-def scan(request):
-    if request.method == 'POST':
-        target = request.POST['target']
-        port = request.POST['port']
-        
-        sock= socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        sock.settimeout(5)
-        result = sock.connect_ex((target,int(port)))
-        if result == 0:
-             message = "Port {}: \t Open".format(port)
-             print("Port {}: \t Open".format(port))
-        else:
-            message = "Port {}: \t Closed".format(port)
-            print("Port {}: \t Open".format(port))
-            sock.close()
-        d = { 'message' : message }
-        return render(request,"result.html",d)
-    return render(request,"scan.html")
 
 def basic_scan(request):
     res = [
@@ -57,24 +42,66 @@ def custom_scan(request):
         target = request.POST['target']
         ports = request.POST['port']
 
-        nm = nmap.PortScanner()
-        res = nm.scan(target,ports)
+        scanner = nmap.PortScanner()
+        res = scanner.scan(target,ports)
 
         return render(request,'result.html',{'res':res})
     return render(request,'custom_scan.html')
 def advanced_scan(request):
+    
     return render(request,'advanced_scan.html')
+
 def ping_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+
+        res = scanner.scan(hosts=target,arguments='-sn')
+        return render(request,'result.html',{'res':res})
     return render(request,'ping_scan.html')
+
 def tcp_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+        port = request.POST['ports']
+
+        res = scanner.scan(target,port,'-sT')
+        return render(request,'result.html',{'res':res})
     return render(request,"tcp_scan.html")
+
 def udp_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+        port = request.POST['ports']
+
+        res = scanner.scan(target,port,'-sU')
+        return render(request,'result.html',{'res':res})
     return render(request,"udp_scan.html")
+
 def stealth_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+        port = request.POST['ports']
+
+        res = scanner.scan(target,port,'-sS')
+        return render(request,'result.html',{'res':res})
+    
     return render(request,"stealth_scan.html")
+
 def aggressive_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+        port = request.POST['ports']
+
+        scanner = nmap.PortScanner()
+        res = scanner.scan(hosts=target,arguments='-A')
+        return render(request,"result.html",{'res':res})
     return render(request,"aggressive_scan.html")
+
 def full_scan(request):
+    if request.method == 'POST':
+        target = request.POST['targets']
+
+        res = scanner.scan(hosts=target,arguments='-p0-65535')
     return render(request,"full_scan.html")
 
 def my_scan(request):

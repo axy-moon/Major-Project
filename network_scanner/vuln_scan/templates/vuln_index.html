@@ -1,5 +1,36 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
         <h1 class="center-head">Vulnerability Scanner</h1>
+        
+        <div class="vuln-container">
+                <div class="vuln-face" id="left">
+                        <p>Scan your targets for <span>vulnerability</span> with one click</p>
+                <button>Scan Now</button>
+
+                </div>
+
+                <div class="vuln-face" id="right">
+                        <img src="{% static 'img/vulnerability.png' %}" alt="" class="vuln-img" style="height:200px ; width:200px;">   
+                </div>
+        </div>
+
+        <div class="vuln-container-two">
+                        <h1 class="center-head">Scan for Specific Vulnerability</h1>
+
+                <div class="second-grid">
+                        <div class="vuln-box">
+                                <h3>Remote Code Execution</h3>
+                        </div>
+                        
+                        <div class="vuln-box">
+                                <h3>Cross Site Scripting</h3>
+                        </div>
+                        
+                        <div class="vuln-box">
+                                <h3>Local File Inclusion</h3>
+                        </div>
+                </div>
+        </div>
+
 {% endblock %}

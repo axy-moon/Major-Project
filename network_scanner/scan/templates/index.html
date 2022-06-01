@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title%}
-Home
+    Home
 {% endblock %}
 
 {% block body %}
@@ -13,20 +13,20 @@ Home
         
         <div class="scan-box">
             <i class="fa-solid fa-satellite-dish"></i>
-        <p class="box-main">Quick Scan</p>
-        <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+        <p class="box-main">Default Scan</p>
+        <p class="scan-desc">Scans the basic ports of a network or a target  for open ports or service running on them </p>
         </div>
 
         <div class="scan-box">
             <i class="fa-solid fa-network-wired"></i>
-        <p class="box-main">Quick Scan</p>
-        <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+        <p class="box-main">Custom Scan</p>
+        <p class="scan-desc">Only Scan the specified ports and check whether it is open and detect the service running  </p>
         </div>
 
         <div class="scan-box">
             <i><i class="fa-brands fa-searchengin"></i></i>
         <p class="box-main">Quick Scan</p>
-        <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+        <p class="scan-desc">Perform a Quick scan on most used ports it scan fewer ports than default scan</p>
         </div>
         </div>
     </div>
@@ -39,61 +39,58 @@ Home
             <div class="scan-box-grid" id="first-grid-box">
             
                 <i class="fa-solid fa-computer"></i>
-            <p class="box-main">Fuck Scan</p>
+            <p class="box-main">Full Scan</p>
         
-            <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+            <p class="scan-desc">Perform a Full scan on most used ports using socket method and prints thr result </p>
         
         </div>
     </div>
         <div class="grid-box">
         <div class="scan-box-grid">
-            <i class="fa-solid fa-network-wired"></i>
-        <p class="box-main">Sec Scan</p>
-        <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+            <i class="bi bi-arrow-left-right"></i>
+        <p class="box-main" id="sec-box-p">TCP Scan</p>
+        <p class="scan-desc" id="sec-box-p">Perform a Quick scan on most used ports using socket method and prints thr result </p>
         </div>
 
         <div class="scan-box-grid">
-            <i><i class="fa-brands fa-searchengin"></i></i>
-        <p class="box-main">Last Scan</p>
-        <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+            <i class="bi bi-broadcast"></i>
+        <p class="box-main" id="sec-box-p">UDP Scan</p>
+        <p class="scan-desc" id="sec-box-p">Perform a Quick scan on most used ports using socket method and prints thr result </p>
         </div>
     </div>
     </div>
     </div>
-    <!--
-    <div class="container">
-        <div class="row">
-            <div class="box">
-                <a href="{% url 'basic_scan' %}"><p>Basic Scan</p></a>
+    <div class="index-container">
+        <h1 class="center-head"> Service Detection </h1>
+        <div class="box-container-three">
+        
+            <div class="scan-box-third">
+                <i class="fa-solid fa-satellite-dish"></i>
+            <p class="box-main">Quick Scan</p>
+            <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
             </div>
-            <div class="box">
-                <a href="{% url 'advanced_scan' %}"><p>Advanced Scan</p></a>
+    
+            <div class="scan-box-third">
+                <i class="fa-solid fa-network-wired"></i>
+            <p class="box-main">Quick Scan</p>
+            <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
             </div>
-            <div class="box">
-                <a href="{% url 'custom_scan' %}"><p>Custom Scan</p></a>
+    
+            <div class="scan-box-third">
+                <i><i class="fa-brands fa-searchengin"></i></i>
+            <p class="box-main">Quick Scan</p>
+            <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
             </div>
+            <div class="scan-box-third">
+                <i><i class="fa-brands fa-searchengin"></i></i>
+            <p class="box-main">Quick Scan</p>
+            <p class="scan-desc">Perform a Quick scan on most used ports using socket method and prints thr result </p>
+            </div>
+                
         </div>
-        <div class="row">
-            <div class="box">
-                <a href="{% url 'ping_scan' %}"><p>Ping Scan</p></a>
-            </div>
-            <div class="box">
-                <a href="{% url 'tcp_scan' %}"><p>TCP Scan</p></a>
-            </div>
-            <div class="box">
-                <a href="{% url 'udp_scan' %}"><p>UDP Scan</p></a>
-            </div>
+
         </div>
-        <div class="row">
-            <div class="box">
-                <a href="{% url 'stealth_scan' %}"><p>Stealth Scan</p></a>
-            </div>
-            <div class="box">
-                <a href="{% url 'aggressive_scan' %}"><p>Aggressive Scan</p></a>
-            </div>
-            <div class="box">
-                <a href="{% url 'full_scan' %}"><p>Full Scan</p></a>
-            </div>
-        </div>
-    </div> -->
+
+    </div>
+
 {% endblock%}
