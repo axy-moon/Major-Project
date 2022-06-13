@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="center-head">Vulnerability Scan</h1>
+<div class="scan-form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-wrapper">
+            <div class="form">
+               <div class="inputfield">
+                  <label>Target: </label>
+                  <input type="text" class="input" name="target">
+               </div>  
+               <div class="inputfield">
+        <input type="submit" value="Start Scan" class="btn" style="background-color: #ff0808;">
+      </div>
+        </div>
+
+    </div>      
+    </form>
+    </div> 
+{% endblock %}

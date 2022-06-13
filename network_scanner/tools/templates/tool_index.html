@@ -3,29 +3,41 @@
 {% block body%}
 
 <h1 class="center-head">Basic Network Tools</h1>
-<div class="container">
-    <div class="row">
-        <div class="box">
-            <a href="#"><p>My IP Address</p></a>
+<div class="tool-container">
+    <div class="row-tool">
+        <div class="tool-grid">
+            <i class="bi bi-binoculars-fill"></i>
+            <a href="{% url 'ip'%}"><p class="box-main">My IP Address</p></a>
+            <p class="scan-desc">Find out what your public IPv4 and IPv6 addresses. See the IP address assigned to your device</p>
         </div>
-        <div class="box">
-            <a href="#"><p>DNS resolver</p></a>
+        <div class="tool-grid">
+            <i class="fa-brands fa-amilia"></i>
+            <a href="#"><p class="box-main">DNS resolver</p></a>
+            <p class="scan-desc"> A DNS resolver, also known as a resolver, is a server on the Internet that converts domain names into IP addresses.</p>
         </div>
-        <div class="box">
-            <a href="#"><p>NS Lookup</p></a>
+        <div class="tool-grid">
+            <i class="bi bi-app-indicator"></i>
+            <a href="#"><p class="box-main">NS Lookup</p></a>
+            <p class="scan-desc">nslookup is a web based DNS client that queries DNS records for a given domain name. It shows all the DNS records for a website.</p>
+        </div>
+        <div class="tool-grid">
+            <i class="fa-solid fa-arrows-spin"></i>
+            <a href="#"><p class="box-main">MAC Spoofing</p></a>
+            <p class="scan-desc">MAC spoofing is a technique for changing a factory-assigned MAC address of a network interface on a networked device</p>
+        </div>
+        <div class="tool-grid">
+            <i class="fa-solid fa-arrows-to-circle"></i>
+            <a href="#"><p class="box-main">Trace Route</p></a>
+            <p class="scan-desc">A traceroute provides a map of how data on the internet travels from your computer to its destination</p>
+        </div>
+        <div class="tool-grid">
+            <i class="bi bi-calculator"></i>
+            <a href="#"><p class="box-main">Subnet Calculator</p></a>
+            <p class="scan-desc">This IP subnet calculator covers both IPv4 and IPv6 protocols, providing information such as IP address, network address, subnet mask, IP range, and more.
+            </p>
         </div>
     </div>
-    <div class="row">
-        <div class="box">
-            <a href="#"><p>MAC Changer</p></a>
-        </div>
-        <div class="box">
-            <a href="#"><p>Trace Route</p></a>
-        </div>
-        <div class="box">
-            <a href="#"><p>Subnet Calculator</p></a>
-        </div>
-    </div>
+
 
     </div>
 {% endblock %}

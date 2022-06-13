@@ -24,7 +24,9 @@ urlpatterns = [
     path('vuln/',include('vuln_scan.urls')),
 
     path('',views.login,name="login"),
-    path('register/',views.register,name="register")
+    path('register/',views.register,name="register"),
+    path('report/',views.report,name="report")
+
 
 
     

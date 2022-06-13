@@ -6,7 +6,7 @@ import nmap
 import socket
 # Create your views here.
 
-scanner = nmap.PortScanner
+scanner = nmap.PortScanner()
 
 @login_required
 def home(request):
@@ -35,18 +35,39 @@ def basic_scan(request):
                     sock.close()
                
         return render(request,"result.html",{'res':res})
-    return render(request,"basic_scan.html")
+    return render(request,"result.html")
 
 def custom_scan(request):
+   
     if request.method == 'POST':
         target = request.POST['target']
         ports = request.POST['port']
 
         scanner = nmap.PortScanner()
         res = scanner.scan(target,ports)
+        
+        if res['nmap']['scanstats']['uphosts'] != '0':
+            ip_addr = socket.gethostbyname(target)
+            if res['scan'][ip_addr]['tcp'][int(ports)]['state'] == 'open':
+                port_status = "OPEN"
+                port_service = res['scan'][ip_addr]['tcp'][int(ports)]['name']
+                service_version = res['scan'][ip_addr]['tcp'][int(ports)]['product'] + " " +  res['scan'][ip_addr]['tcp'][int(ports)]['version']
+        else:
+             port_status = "CLOSED"
+             port_service = "Nil"
+             service_version = "Nil"
 
-        return render(request,'result.html',{'res':res})
+        scan_info = {'scan_type':'Port Scan',
+                     'scan_method':'Custom Scan',
+                     'port_status':port_status,
+                     'port_service':port_service,
+                     'service_version':service_version}
+
+        out = {'res':res,'scan_info':scan_info}
+        return render(request,'result.html',out)
     return render(request,'custom_scan.html')
+
+
 def advanced_scan(request):
     
     return render(request,'advanced_scan.html')
@@ -56,6 +77,7 @@ def ping_scan(request):
         target = request.POST['targets']
 
         res = scanner.scan(hosts=target,arguments='-sn')
+        print(res)
         return render(request,'result.html',{'res':res})
     return render(request,'ping_scan.html')
 
@@ -64,7 +86,7 @@ def tcp_scan(request):
         target = request.POST['targets']
         port = request.POST['ports']
 
-        res = scanner.scan(target,port,'-sT')
+        res = scanner.scan(target,port,arguments='-sS')
         return render(request,'result.html',{'res':res})
     return render(request,"tcp_scan.html")
 
@@ -82,7 +104,7 @@ def stealth_scan(request):
         target = request.POST['targets']
         port = request.POST['ports']
 
-        res = scanner.scan(target,port,'-sS')
+        res = scanner.scan(target,port,arguments='-sS')
         return render(request,'result.html',{'res':res})
     
     return render(request,"stealth_scan.html")

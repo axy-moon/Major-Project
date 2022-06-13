@@ -5,10 +5,7 @@
     --primaryBg : #141d2b;
     --elcolor : #009DA8;
     --thcolor : #9fef00;
-    --textcolordim: #A4B1CD;
-    --textcolorbrt: #FFFFFF; 
-    --toolthcolor:#00C9C8;
-    --vulnthcolor:#ff0808;
+    --textcolor:     
 }
 
 * {
@@ -159,6 +156,26 @@ body {
   padding: 10px;
 
 }
+
+/* 
+ */
+/* .nav {
+    display: flex;
+    justify-content: space-between;
+    background: lightblue;
+} */
+
+/* .nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 25px;
+} */
+/* 
+h1 {
+    text-align: center;
+} */
 
 .header {
     display: flex;
@@ -377,7 +394,7 @@ body {
    padding: 8px 10px;
   font-size: 15px; 
   border: 0px;
-  background:  var(--thcolor);
+  background:  var(--elcolor);
   color: #fff;
   cursor: pointer;
   border-radius: 3px;
@@ -385,7 +402,7 @@ body {
 }
 
 .form-wrapper .form .inputfield .btn:hover{
-  background: green;
+  background: grey;
 }
 
 .form-wrapper .form .inputfield:last-child{
@@ -494,7 +511,6 @@ body {
 
 .content-table tbody tr {
   border-bottom: 1px solid #ddd;
-  background-color: #fff;
 }
 
 .content-table tbody tr:nth-of-type(even) {
@@ -502,7 +518,7 @@ body {
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid var(--thcolor);
+  border-bottom: 2px solid var(--elcolor);
 }
 
 .content-table tbody tr:hover {
@@ -547,7 +563,7 @@ body {
 }
 
 .vuln-face span {
-  color: #eb0202;
+  color: var(--thcolor);
 }
 
 .vuln-face button {
@@ -555,7 +571,7 @@ body {
   text-align: center;
   font-size: 20px;
   color: white;
-  background-color: #ff0808;
+  background-color: var(--thcolor);
   width: 40%;
   border: none;
   border-radius: 4px;
@@ -569,7 +585,7 @@ body {
 
 #right i  {
   font-size:258px;
-  color: #ff0808;
+  color: var(--thcolor);
 
 }
 
@@ -590,108 +606,3 @@ body {
   background-color: red;
   border: 1px solid red;
 }
-
-
-.tool-container {
-  display: block;
-  padding: 48px 40px 80px 40px;
-  margin: 20px 15px 20px 15px;
-  background-color: #111927;
-}
-
-.tool-container a {
-  text-decoration: none;
-  color: var(--textcolordim);
-}
-
-.row-tool {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-}
-
-.tool-grid {
-  display: grid;
-  place-items: center;
-  background-color: #141d2b;
-  border: 2px solid #141d2b;
-  box-sizing: border-box;
-  border-radius: 2px;
-}
-
-.tool-grid .box-main {
-  color: #00C9C8;
-}
-.tool-grid i {
-  color:#00C9C8;
-  font-size: 48px;
-  padding: 10px;
-
-}
-
-.res-box {
-  display: grid;
-  margin-top: 50px;
-}
-
-.result-header {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-  color:#fff;
-  font-size: 18px;
-  width: 75%;
-  margin: auto;
-  border: 1px solid var(--thcolor);
-  border-radius: 5px;
-
-}
-
-.result-header span {
-  color: var(--textcolordim);
-  
-}
-
-.result-title {
-  margin-right: 100px;
-}
-
-
-
-.result-title p {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.result-table {
-  border-collapse: collapse;
-  margin: 50px 50px;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 0.9em;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.15);
-}
-
-.result-table thead tr {
-  color: var(--textcolorbrt);
-  text-align:left;
-  font-weight: bold;    
-}
-
-.result-table th, 
-.result-table td {
-  border: 1px solid rgb(197, 205, 222,0.3);
-  padding: 12px 15px;
-  
-} 
-
-.result-table tbody tr {
-  border-bottom: 1px solid #ddd;
-  color: var(--textcolordim);
-}
-
-
-

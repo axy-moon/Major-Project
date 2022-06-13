@@ -2,7 +2,7 @@
 
 {% block body%}
 
-<h1 class="center-head">Scan Result</h1>
+<!-- <h1 class="center-head">Scan Result</h1>
 
 <div class="pre-res" id="pre-res">
   <p>Scan completed Successfully <br> Scan Time: {{res.nmap.scanstats.timestr}} </p>
@@ -14,11 +14,11 @@
 
 <div class="result-container" style="display:none;" id="result-container">
     <h3>Scan results for scan done at {{res.nmap.scanstats.timestr}}</h3>
-		<h4>Target: 127.0.0.1</h4>
+		<h4>Target: {{target}}</h4>
 		<p>Scan Type: Basic Scan</p>
-		
+		<h3>{{mess}}</h3>
     
-    <p>{{res.scan}}</p>
+   <p>{{res.scan}}</p>
     <table>
 			<tr>
 				<th>PORT</th>
@@ -34,10 +34,64 @@
       </tr>
       {% endfor %}
 
+
+    
+
+    </div> -->
+
+    <h1 class="center-head">Scan Results</h1>
+
+   
+    <div class="res-box">
+      <div class="result-header">
+        
+        <div class="result-title">
+          <p>Scan Type: <span>{{scan_info.scan_type}} </span> </p> 
+          <p>Scan Method: <span> {{scan_info.scan_method}} </span> </p> </div> 
+        
+        <div class="result-title">
+         <p> Scan Name: <span> Custom Scan </span></p>
+         <p> Scan Time:  <span>{{res.nmap.scanstats.timestr}} </span> </p>
+        </div>
+
+        <div class="result-title">
+           <p>Total Hosts: <span> {{res.nmap.scanstats.totalhosts}} </span></p> 
+           <p>Up Hosts: <span> {{res.nmap.scanstats.uphosts}} </span></p>
+        </div>
+    </div> 
+    {% if res.nmap.scanstats.uphosts == '0' %}
+    
+    <div>
+      <h1 class="center-head" style="padding-top: 100px;"> Host is not UP <br>Try Host Discovery Scan </h1>
+    </div>
+
+  {% else %} 
+    <div>
+      <table class="result-table">
+        <thead>
+            <tr>
+                <th>PORTS</th>
+                <th>STATE</th>
+                <th>SERVICE</th>
+                <th>PRODUCT & VERSION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{res.nmap.scaninfo.tcp.services}}</td>
+                <td>{{scan_info.port_status}}</td>
+                <td style="text-transform:uppercase;">{{scan_info.port_service}}</td>
+                <td>{{scan_info.service_version}}</td>
+                
+            </tr>
+            
+            </tbody>
     </table>
     </div>
-    
-      <script type="text/javascript">
+    </div>
+    {% endif %}
+
+    <script type="text/javascript">
         
        
 
